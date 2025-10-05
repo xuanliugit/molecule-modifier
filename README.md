@@ -4,7 +4,7 @@ Build a molecule from modification information.
 
     Args:
         target_mapped_smiles (str): The SMILES representation of the target molecule.
-        disconnect_list (list): A list of disconnected fragments. e.g., [['Arylchloride', [[0]]]]
+        disconnect_list (list): A list of disconnected fragments. e.g., [['Arylchloride', [[15]]]]
         connect_dict (dict): A dictionary mapping fragment connections. e.g., {'C2 ([CH3:0][CH2:1])': [[1, 0, 'target molecule']]}
     Returns:
         ref_smiles (str): The SMILES representation of the rebuilt molecule.

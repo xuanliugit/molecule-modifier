@@ -2,6 +2,7 @@ from rdkit import Chem
 from accfg import (set_atom_idx,
                    remove_fg_list_from_mol)
 import argparse
+import sys
 
 def attach_fg_to_mol(mol, fg_mol, in_atom, out_atom):
     """
@@ -131,11 +132,13 @@ def main():
     target_mapped_smiles = args.target_mapped_smiles
     disconnect_list = eval(args.disconnect_list)
     connect_dict = eval(args.connect_dict)
-    print("Target mapped SMILES:", target_mapped_smiles)
-    print("Disconnect list:", disconnect_list)
-    print("Connect dict:", connect_dict)
+    # print("Target mapped SMILES:", target_mapped_smiles)
+    # print("Disconnect list:", disconnect_list)
+    # print("Connect dict:", connect_dict)
     rebuilt_smiles = build_mol_from_modification(target_mapped_smiles, disconnect_list, connect_dict)
     print(rebuilt_smiles)
+    sys.stdout.flush()
+    
     
 if __name__ == "__main__":
     '''
