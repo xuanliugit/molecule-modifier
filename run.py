@@ -120,9 +120,9 @@ def arg_parse():
     parser = argparse.ArgumentParser(description="Build molecule from modification information.")
     parser.add_argument('--target_mapped_smiles', type=str, required=True,
                         help='The SMILES representation of the target molecule with atom mapping.')
-    parser.add_argument('--disconnect_list', type=str, required=True,
+    parser.add_argument('--disconnect_list', type=str, required=False, default='[]',
                         help='A list of disconnected fragments in string format. e.g., \'[[\"Arylchloride\", [[0]]]]\'')
-    parser.add_argument('--connect_dict', type=str, required=True,
+    parser.add_argument('--connect_dict', type=str, required=False, default='{}',
                         help='A dictionary mapping fragment connections in string format. e.g., \'{"C2 ([CH3:0][CH2:1])": [[1, 2, \"target molecule\"]]}\'')
     args = parser.parse_args()
     return args
@@ -137,7 +137,7 @@ def main():
     # print("Connect dict:", connect_dict)
     rebuilt_smiles = build_mol_from_modification(target_mapped_smiles, disconnect_list, connect_dict)
     print(rebuilt_smiles)
-    sys.stdout.flush()
+    return rebuilt_smiles
     
     
 if __name__ == "__main__":
