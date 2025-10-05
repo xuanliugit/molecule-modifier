@@ -136,8 +136,9 @@ def main():
     # print("Disconnect list:", disconnect_list)
     # print("Connect dict:", connect_dict)
     rebuilt_smiles = build_mol_from_modification(target_mapped_smiles, disconnect_list, connect_dict)
-    print(rebuilt_smiles)
-    return rebuilt_smiles
+    print(f'The modified SMILES is: {rebuilt_smiles}')
+    sys.stdout.flush()
+    
     
     
 if __name__ == "__main__":
